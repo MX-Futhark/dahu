@@ -20,7 +20,8 @@ define([
             return {
                 id: UUID.v4(),
                 objects: new ObjectCollection(),
-                actions : new ActionsCollection()
+                actions : new ActionsCollection(),
+                notes : new Notes()
             }
         },
 
