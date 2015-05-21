@@ -11,6 +11,7 @@
         <link rel="stylesheet" media="screen" href="./libs/deck.js/extensions/navigation/deck.navigation.css">
         <link rel="stylesheet" media="screen" href="./libs/deck.js/extensions/status/deck.status.css">
         <link rel="stylesheet" media="screen" href="./libs/deck.js/extensions/scale/deck.scale.css">
+        <link rel="stylesheet" media="screen" href="./libs/deck.js/extensions/notes/deck.notes.css">
 
         <!-- Style theme. More available in /themes/style/ or create your own. -->
         <link rel="stylesheet" media="screen" href="./libs/deck.js/themes/style/web-2.0.css">
@@ -72,6 +73,9 @@
                          style="top: {{normalizedToPixel (screencastHeight) attributes.posy}}; left:{{normalizedToPixel (screencastWidth) attributes.posx}};">
                     {{/if}}
                     {{/each}}
+                    <div class="deck-notes">
+                        {{attributes.note.text}}<br>
+                    </div>
                 </section>
                 {{/each}}
             {{else}}
@@ -90,6 +94,7 @@
     <script src="./libs/deck.js/extensions/status/deck.status.js"></script>
     <script src="./libs/deck.js/extensions/navigation/deck.navigation.js"></script>
     <script src="./libs/deck.js/extensions/scale/deck.scale.js"></script>
+    <script src="./libs/deck.js/extensions/notes/deck.notes.js"></script>
 
     <!-- Initialize the deck. You can put this in an external file if desired. -->
     <script>
