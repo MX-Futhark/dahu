@@ -100,7 +100,7 @@ define('dahuapp', [
 ], function(
     Patcher,
     $, _, Backbone, Marionette, Handlebars,
-    Kernel, Screencast, events, commands, reqResponse, Paths, Exceptions,
+    Kernel, Screencast, events, commands, reqResponse, Paths, Exceptions, 
     ScreencastController, LayoutController,
     ScreencastModel, ScreenModel, ImageModel, MouseModel, TooltipModel,
     ScreensCollection) {
