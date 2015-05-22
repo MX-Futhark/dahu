@@ -49,7 +49,14 @@ define([
             _.extend(this, _.pick(options, ['screencast', 'screenId']));
             kernel.console.log('Initialising noteView');
             this.model = this.screencast.model.getScreenById(this.screenId).get('note');
-        }
+        },
 
+        onSave: function () {
+            this.model.text = this.el.getValue();
+        },
+
+        onBeforeSelectedView: function () {
+            this.model.text = this.el.getValue();
+        }
     });
 });
