@@ -41,14 +41,15 @@ define([
      * Note screen view
      */
     return Marionette.ItemView.extend({
-        template: Handlebars.default.compile(notesTemplate),
+        template: Handlebars.default.compile(noteTemplate),
 
-        className: 'notes',
+        className: 'note',
 
         initialize: function (options) {
             _.extend(this, _.pick(options, ['screencast', 'screenId']));
             kernel.console.log('Initialising noteView');
-            this.model = this.screencast.model.getScreenById(this.screenId).get('notes');
+            this.model = this.screencast.model.getScreenById(this.screenId).get('note');
         }
+
     });
 });
