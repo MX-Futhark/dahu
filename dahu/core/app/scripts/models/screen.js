@@ -21,7 +21,7 @@ define([
                 id: UUID.v4(),
                 objects: new ObjectCollection(),
                 actions : new ActionsCollection(),
-                notes : new Note()
+                //notes : new Note()
             }
         },
 
