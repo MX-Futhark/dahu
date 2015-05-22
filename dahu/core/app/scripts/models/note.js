@@ -7,7 +7,7 @@ define([
 	'uuid'
 ], function(_, Backbone, UUID){
 
-	var notesModel = Backbone.Model.extend({
+	var noteModel = Backbone.Model.extend({
 		defaults: function () {
 			return {
 				id: UUID.v4(),
@@ -20,5 +20,5 @@ define([
         }
 	});
 
-	return notesModel;
+	return noteModel;
 });
