@@ -42,23 +42,18 @@ define([
      */
     return Marionette.ItemView.extend({
         template: Handlebars.default.compile(noteTemplate),
-
         className: 'note',
 
         events: {
-            "focusout" : "autoSave"
+            "focusout" : "updateNote"
         },
 
         initialize: function (options) {
             _.extend(this, _.pick(options, ['screencast', 'screenId']));
-            kernel.console.log('Initialising noteView');
             this.model = this.screencast.model.getScreenById(this.screenId).get('note');
         },
 
-        autoSave: function () {
-            kernel.console.log("Note view : saveText");
-            kernel.console.log($("#zone_saisi_note"));
-            kernel.console.log($("#zone_saisi_note").val());
+        updateNote: function () {
             this.model.modifyText($("#zone_saisi_note").val());
         }
 

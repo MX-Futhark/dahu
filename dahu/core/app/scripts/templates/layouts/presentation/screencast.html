@@ -73,9 +73,11 @@
                          style="top: {{normalizedToPixel (screencastHeight) attributes.posy}}; left:{{normalizedToPixel (screencastWidth) attributes.posx}};">
                     {{/if}}
                     {{/each}}
+                    {{#if attributes.note}}
                     <div class="deck-notes">
                         {{attributes.note.text}}<br>
                     </div>
+                    {{/if}}
                 </section>
                 {{/each}}
             {{else}}

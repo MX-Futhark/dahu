@@ -16,8 +16,8 @@ define([
 		},
 
 		modifyText: function(newText) {
-            this.set('text', newText);
-        }
+                    this.set('text', newText);
+                }
 	});
 
 	return NoteModel;

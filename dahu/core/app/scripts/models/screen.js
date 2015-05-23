@@ -37,7 +37,7 @@ define([
                 this.set('actions', new ActionsCollection(this.get('actions')));
             }
             if ( ! (this.get('note') instanceof NoteModel) ) {
-                this.set('note', new NoteModel());
+                this.set('note', new NoteModel(this.get('note')));
             }
         },
 
