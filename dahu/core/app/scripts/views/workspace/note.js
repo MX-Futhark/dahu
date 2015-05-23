@@ -45,7 +45,7 @@ define([
         className: 'note',
 
         events: {
-            "focusout" : "updateNote"
+            "focusout" : "updateNoteModel"
         },
 
         initialize: function (options) {
@@ -53,7 +53,7 @@ define([
             this.model = this.screencast.model.getScreenById(this.screenId).get('note');
         },
 
-        updateNote: function () {
+        updateNoteModel: function () {
             this.model.modifyText($("#zone_saisi_note").val());
         }
 
