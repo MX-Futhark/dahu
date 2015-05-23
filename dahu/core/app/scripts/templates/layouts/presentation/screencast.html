@@ -73,9 +73,9 @@
                          style="top: {{normalizedToPixel (screencastHeight) this.attributes.posy}}; left:{{normalizedToPixel (screencastWidth) this.attributes.posx}};">
                     {{/if}}
                     {{/each}}
-                    {{#if attributes.note}}
+                    {{#if this.attributes.note}}
                     <div class="deck-notes">
-                        {{attributes.note.text}}<br>
+                        {{this.attributes.note.attributes.text}}<br>
                     </div>
                     {{/if}}
                 </section>
