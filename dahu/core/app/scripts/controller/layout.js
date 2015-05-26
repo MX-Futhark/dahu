@@ -148,11 +148,10 @@ define([
                 screenId: screenId
             }));
 
-            this.currentNoteView = new NoteView({
+            this.workspaceLayout.noteEditor.show(new NoteView({
                 screencast: this.screencast,
                 screenId: screenId
-            })
-            this.workspaceLayout.noteEditor.show(this.currentNoteView);
+            }));
 
             // keep id
             this._activeScreenId = screenId;
@@ -187,10 +186,6 @@ define([
 
         getActiveScreenId: function() {
             return this._activeScreenId;
-        },
-        
-        updateCurrentNoteModel: function() {
-            this.currentNoteView.updateNoteModel();
         }
     });
 });
