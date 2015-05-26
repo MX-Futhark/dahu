@@ -28,8 +28,6 @@ define([
      * Workspace layout controller.
      */
     return Marionette.Controller.extend({
-        
-        currentNoteView: null,
 
         initialize: function(options){
             this.screencast = options.screencast;
