@@ -28,6 +28,8 @@ define([
      * Workspace layout controller.
      */
     return Marionette.Controller.extend({
+        
+        currentNoteView: null,
 
         initialize: function(options){
             this.screencast = options.screencast;
@@ -145,11 +147,19 @@ define([
                 screencast: this.screencast,
                 screenId: screenId
             }));
-
-            this.workspaceLayout.noteEditor.show(new NoteView({
-                screencast: this.screencast,
-                screenId: screenId
-            }));
+            
+            if(this.currentNoteView === null) {
+                this.currentNoteView = new NoteView({
+                    screencast: this.screencast,
+                    screenId: screenId
+                });
+                this.workspaceLayout.noteEditor.show(this.currentNoteView);
+            } else {
+                this.currentNoteView.updateView({
+                    screencast: this.screencast,
+                    screenId: screenId
+                });
+            }
 
             // keep id
             this._activeScreenId = screenId;
