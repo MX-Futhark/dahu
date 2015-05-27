@@ -29,8 +29,9 @@ define([
         },
 
         initialize: function (options) {
+            _.extend(this, _.pick(options, ['screencast', 'screenId']));
+            this.model = this.screencast.model.getScreenById(this.screenId).get('note');
             var self = this;
-            self.updateView(options);
             events.on("app:screencast:save", function() {
                 self.updateNoteModel();
             });
@@ -38,12 +39,6 @@ define([
 
         updateNoteModel: function () {
             this.model.setText($("#note_textarea").val());
-        },
-        
-        updateView: function(options) {
-            _.extend(this, _.pick(options, ['screencast', 'screenId']));
-            this.model = this.screencast.model.getScreenById(this.screenId).get('note');
-            this.render();
         },
 
         onDestroy: function () {
