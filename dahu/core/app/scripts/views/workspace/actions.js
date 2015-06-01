@@ -14,7 +14,9 @@ define([
     'views/workspace/actions/action',
     // templates
     'text!templates/views/workspace/actions.html',
-    'modules/kernel/SCI'
+    //modules
+    'modules/kernel/SCI',
+    'modules/utils/exceptions'
 ], function(
     Handlebars,
     Marionette,
@@ -28,7 +30,9 @@ define([
     ActionView,
     // templates
     actionsTemplate,
-    Kernel
+    //modules
+    Kernel,
+    Exceptions
 ) {
 
     /**
@@ -37,8 +41,8 @@ define([
     return Marionette.CompositeView.extend({
 
         template: Handlebars.default.compile(actionsTemplate),
-        className: "ActionsList",
-        childViewContainer : ".listActions",
+        className: "actionsListContainer",
+        childViewContainer : ".actionsList",
 
         childView: ActionView,
 
@@ -68,15 +72,15 @@ define([
         },
         templateHelpers: function () {
            return{
-               ActionsAvailable: this.collection.getAvailableActions(),
+               actionsAvailable: this.collection.getAvailableActions(),
            }
         },
         events: {
-          'click .buttonAdd': 'clickedButton',
+          'click .buttonAdd': 'onCreateAction',
           'change .addAction': 'addActionChoice'
         },
 
-        clickedButton: function() {
+        onCreateAction: function() {
             var type= $('#addActionChoice').val();
             switch (type) {
                 case "move":{
@@ -91,8 +95,13 @@ define([
                     this.collection.add(new DisappearModel());
                     break;
                 }
-                default:
-                    this.collection.add(new AppearModel());
+                default:{
+                    /*var filename=this.screencast.model.getProjectFilename();
+                    throw new Exceptions.IOError("this type of action doesn't exist.concerned project #{project}",{
+                    project:filename
+                    });*/
+                    kernel.console.error("this type of action doesn't exist");  
+                }
             }
             this.$childViewContainer[0].scrollTop=this.$childViewContainer[0].scrollHeight;
         },
