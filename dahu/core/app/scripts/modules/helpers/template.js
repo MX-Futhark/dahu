@@ -59,6 +59,7 @@ define([
             // return URL
             return options.type + '://' + Paths.join(parts);
         });
+
         /**
          * allow a comparison with operator '===' in a template #if.
          * branch depending on the result
